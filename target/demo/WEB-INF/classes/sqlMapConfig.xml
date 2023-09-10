@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+		
+   <environments default="development">
+      <environment id="development">
+         <transactionManager type="JDBC"/>  
+         <!-- <transactionManager type="JDBC">   -->
+            <dataSource type = "POOLED">
+               <property name = "driver" value = "com.mysql.cj.jdbc.Driver"/>
+               <property name = "url" value = "jdbc:mysql://localhost:3306/my_db"/>
+               <property name = "username" value = "root"/>
+               <property name = "password" value = "MySQL1234!"/>
+            </dataSource>  
+         <!-- </transactionManager>   -->
+      </environment>
+   </environments>
+
+   <!-- <typeAliases>
+      <typeAlias alias="Student" type="dao.models.Student"/>
+   </typeAliases> -->
+	
+   <mappers>
+      <!-- <mapper resource = "demo/src/main/java/MyBatis/Student.xml"/> -->
+      <mapper url="file:///Users/hurleyqi/Desktop/VS Code/Summer 2023/Internship/demo/src/main/java/DAO/MyBatis/xml/StudentMapper.xml"/>
+      <mapper url="file:///Users/hurleyqi/Desktop/VS Code/Summer 2023/Internship/demo/src/main/java/DAO/MyBatis/xml/RecordMapper.xml"/>
+      <!-- <mapper class="java.dao.models.Student"/> -->
+      <!-- <mapper name="com.example"/> -->
+   </mappers>   
+</configuration>

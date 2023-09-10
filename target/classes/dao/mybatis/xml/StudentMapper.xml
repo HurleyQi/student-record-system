@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.mybatis.interfaces.StudentMapper">
+
+    <resultMap id = "studentResultMap" type="dao.models.Student">
+        <result property = "id" column = "id"/>
+        <result property = "name" column = "name"/>
+        <result property = "age" column = "age"/>
+        <result property = "address" column = "adress"/>
+        <result property = "date" column = "date_of_birth"/>
+        <result property = "gender" column = "gender"/>
+        <result property = "course" column = "course"/>
+   </resultMap>
+
+    <insert id="addStudent" parameterType="dao.models.Student">
+        INSERT INTO student_info (name, id, age, date_of_birth, gender, adress, course)
+        VALUES(#{name}, #{id}, #{age}, #{dob}, #{gender}, #{address}, #{course})
+    </insert>
+
+    <delete id = "removeStudent" parameterType="int">
+        DELETE from student_info WHERE id = #{id}
+    </delete>
+
+    <select id="searchStudentById" parameterType="int" resultMap="studentResultMap">
+        SELECT * FROM student_info WHERE id = #{id}
+    </select>
+
+    <select id="search" resultMap="studentResultMap" parameterType="web.dto.StudentSearchDTO">
+        SELECT * FROM student_info WHERE 1=1
+        <if test="name != null">
+            AND name LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="course != null">
+            AND course = #{course}
+        </if>
+    </select>
+
+    <update id = "editStudent" parameterType="dao.models.Student">
+        UPDATE student_info SET
+            name = #{name},
+            age = #{age},
+            date_of_birth = #{dob},
+            gender = #{gender},
+            adress = #{address},
+            course = #{course}
+        WHERE id = #{id}
+   </update>
+</mapper>

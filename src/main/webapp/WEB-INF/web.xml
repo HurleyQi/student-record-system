@@ -1,0 +1,68 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app     xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+    version="6.0">
+
+
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <display-name>Student Practice</display-name>
+
+    <servlet>
+        <servlet-name>StudentAddServlet</servlet-name>
+        <servlet-class>web.StudentAddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentAddServlet</servlet-name>
+        <url-pattern>/student_add_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentSearchServlet</servlet-name>
+        <servlet-class>web.StudentSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentSearchServlet</servlet-name>
+        <url-pattern>/student_search_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentDeleteServlet</servlet-name>
+        <servlet-class>web.StudentDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentDeleteServlet</servlet-name>
+        <url-pattern>/student_delete_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentEditServlet</servlet-name>
+        <servlet-class>web.StudentEditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentEditServlet</servlet-name>
+        <url-pattern>/student_edit_servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditHelperServlet</servlet-name>
+        <servlet-class>web.EditHelperServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditHelperServlet</servlet-name>
+        <url-pattern>/edit_helper_servlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- <error-page>
+        <exception-type>java.lang.IllegalArgumentException</exception-type>
+        <location>/error.jsp</location>
+    </error-page> -->
+
+</web-app>
